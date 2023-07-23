@@ -1,0 +1,182 @@
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-light gradient-custom">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+      <!-- Toggle button -->
+      <button
+          class="navbar-toggler text-white"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+      >
+          <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Navbar brand -->
+          <a class="navbar-brand mt-2 mt-lg-0" href="#">
+              <b><h4 class="pt-1 mb-1">SISMEG</h4></b>
+          </a>
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link active" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Inicio</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Pacientes</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Datos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../login/login.component.html" onclick="navigateTo('app-login')">Logout</a>
+              </li>
+          </ul>
+          <!-- Left links -->
+      </div>
+      <!-- Collapsible wrapper -->
+
+      <!-- Right elements -->
+      <div class="d-flex align-items-center">
+          <!-- Icon -->
+          <a class="text-reset me-3" href="#">
+              <i class="fas fa-shopping-cart text-white"></i>
+          </a>
+
+          <!-- Notifications -->
+          <div class="dropdown">
+              <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                  <i class="fas fa-bell text-white"></i>
+                  <span class="badge rounded-pill badge-notification bg-danger">1</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                  <li>
+                      <a class="dropdown-item" href="#">Some news</a>
+                  </li>
+                  <li>
+                      <a class="dropdown-item" href="#">Another news</a>
+                  </li>
+                  <li>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+      <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+
+    <main role="main">
+    
+    <div style="margin-top: 10px;">
+    </div>
+
+    <!-- CAROUSEL-->  
+
+    <div style="width: 1280px; height: 320px; margin: 0 auto">
+      <image-slider [slides]="slides"></image-slider>
+    </div>
+
+
+    <div style="margin: 40px;">
+    </div>
+
+      <!-- Marketing messaging and featurettes
+      ================================================== -->
+      <!-- Wrap the rest of the page in another container to center all the content. -->
+
+      <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+          <div class="col-lg-4">
+            <img style= "opacity: 0.4;" src="https://cdn-icons-png.flaticon.com/512/489/489848.png" alt="Generic placeholder image" width="60" height="60">
+            <h2>Agendar una Cita</h2>
+            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img style= "opacity: 0.4;" src="https://img.icons8.com/?size=512&id=3062&format=png" alt="Generic placeholder image" width="60" height="60">            
+            <h2>Cancelar una cita</h2>
+            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img style= "opacity: 0.4;" src="https://img.icons8.com/?size=512&id=12491&format=png" alt="Generic placeholder image" width="60" height="60">            
+            <h2>Reagendar una cita</h2>
+            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+
+          <div class="col-lg-4">
+            <img style= "opacity: 0.4;" src="https://img.icons8.com/?size=512&id=34990&format=png" alt="Generic placeholder image" width="60" height="60">            
+            <h2>Historial de citas</h2>
+            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+
+          <div class="col-lg-4">
+            <img style= "opacity: 0.4;" src="https://img.icons8.com/?size=512&id=23264&format=png" alt="Generic placeholder image" width="60" height="60">            
+            <h2>Mis Datos</h2>
+            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          </div>
+          <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          </div>
+          <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- /END THE FEATURETTES -->
+
+      </div><!-- /.container -->
+
+
+      <!-- FOOTER -->
+      <footer class="container">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2023 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+    </main>
