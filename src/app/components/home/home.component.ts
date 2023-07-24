@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { SlideInterface } from 'src/app/imageSlider/types/slide.interface';
 
 @Component({
@@ -7,6 +8,9 @@ import { SlideInterface } from 'src/app/imageSlider/types/slide.interface';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+
+  constructor(private router: Router) {}
+
   title = 'sismeg';
   slides: SlideInterface[] = [
     { url: '/assets/imgAgendarCita.jpg', title: 'img1'},
@@ -14,6 +18,5 @@ export class HomeComponent {
     { url: '/assets/imgHistorialCitas.jpg', title: 'img3'},
     { url: '/assets/imgMisDatos.jpg', title: 'img4'},
     { url: '/assets/imgReangendarCita.jpg', title: 'img5'}
-
   ];
 }

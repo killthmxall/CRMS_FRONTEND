@@ -1,1 +1,50 @@
-<app-home></app-home>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-light gradient-custom">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+        <!-- Toggle button -->
+
+  
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Navbar brand -->
+            <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                <b><h4 class="pt-1 mb-1">SISMEG</h4></b>
+            </a>
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  
+                <li class="nav-item">
+                    <a routerLink="/home" routerLinkActive="active-link" class="nav-link active" href="#">Home</a>
+                </li>
+  
+                <li class="nav-item">
+                    <a routerLink="/login" routerLinkActive="active-link" class="nav-link" href="#">Login</a>
+                </li>
+  
+                <li class="nav-item">
+                  <a class="nav-link" href="../login/login.component.html" onclick="navigateTo('app-login')">Logout</a>
+                </li>
+  
+            </ul>
+            <!-- Left links -->
+        </div>
+        <!-- Collapsible wrapper -->
+  
+        <!-- Right elements -->
+        <div class="d-flex align-items-center">
+            <!-- Icon -->
+            <a class="text-reset me-3" href="#">
+                <i class="fas fa-shopping-cart text-white"></i>
+            </a>
+  
+            <!-- Notifications -->
+        </div>
+        <!-- Right elements -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+
+<router-outlet></router-outlet>
