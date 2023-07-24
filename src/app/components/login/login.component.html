@@ -28,7 +28,7 @@
           <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <form>
     
-              <h1 style="margin-top: 1%;" class="text-center">Agendamiento de Cita Medica</h1>
+              <h1 style="margin-top: 1%;" class="text-center">Agendamiento de Cita Médica</h1>
     
               <!-- Email input -->
               <div class="form-outline mb-4">
@@ -56,9 +56,15 @@
               </div>
     
               <div class="text-center text-lg-start mt-4 pt-2">
-                <button class="btn btn-primary btn-lg"
+                <button (click)="navegarlogin()" class="btn btn-primary btn-lg"
                   style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
               </div>
+
+              <div class="text-center text-lg-start mt-4 pt-2">
+                <button (click)="create()" class="btn btn-primary btn-lg"
+                  style="padding-left: 2.5rem; padding-right: 2.5rem;">Crear Cuenta</button>
+              </div>
+    
     
             </form>
           </div>

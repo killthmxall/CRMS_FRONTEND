@@ -9,10 +9,15 @@ import { Route, Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   constructor(private router: Router) { }
-
+  
   ngOnInit() {
     // TODO document why this method 'ngOnInit' is empty
-  
+    
   }
-
+  navegarlogin() {
+    this.router.navigate(['']);
+  }
+  create() {
+    this.router.navigate(['/registro']);
+  }
 }
