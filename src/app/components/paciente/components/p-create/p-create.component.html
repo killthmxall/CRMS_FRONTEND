@@ -81,7 +81,7 @@
               <div class="col">
                 <span class="p-float-label">
                   <p-dropdown [options]="listHTA" optionLabel="name" [autoDisplayFirst]="false" inputId="CIE"
-                    formControlName="cie_code"></p-dropdown>
+                    optionValue="code" formControlName="cie_code"></p-dropdown>
                   <label for="CIE">CIE Code</label>
                 </span>
               </div>
@@ -104,7 +104,9 @@
             <div class="row my-4">
               <div class="col">
                 <span class="p-float-label">
-                  <p-calendar [showIcon]="true" appendTo="body" formControlName="birthday"></p-calendar>
+                  <p-calendar [showIcon]="true" appendTo="body" formControlName="birthday"
+                  dataType="string" dateFormat="yy-mm-dd"
+                  ></p-calendar>
                   <label for="inputEmail">Nacimiento</label>
                 </span>
               </div>

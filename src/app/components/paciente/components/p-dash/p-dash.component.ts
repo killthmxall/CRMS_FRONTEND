@@ -1,41 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/components/services/data.service';
 import { PacienteService } from 'src/app/components/services/paciente.service';
-import { PacientList, Paciente } from '../../interfaces/paciente.interfaces';
+import { PacientList, Paciente, UpdatePacient } from '../../interfaces/paciente.interfaces';
 import { firstValueFrom, lastValueFrom } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'pacient-dash',
-  templateUrl: 'p-dash.component.html'
+  templateUrl: 'p-dash.component.html',
 })
-
 export class DashboardPacientComponent implements OnInit {
-
-  pacientForm!: FormGroup
-  listHTA: Array<object> = []
-  pacient!: PacientList
-  editable = false
+  pacientForm!: FormGroup;
+  listHTA: Array<object> = [];
+  pacient!: UpdatePacient;
+  editable = false;
+  private uuid = 0
 
   constructor(
     private __dataService: DataService,
     private __pacientService: PacienteService
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.loadPacient()
-    this.loadPacientForm()
-    this.loadHTAList()
+    this.loadPacient();
+    this.loadPacientForm();
+    this.loadHTAList();
   }
 
-  handleEditable(){
-    this.editable = !this.editable
+  handleEditable() {
+    this.editable = !this.editable;
   }
 
-  async loadPacient(){
-    const uuid = await firstValueFrom(this.__dataService.pacient$)
-    if(uuid != 0){
-      this.pacient = await firstValueFrom(this.__pacientService.getPacientById(uuid)) as PacientList
+  async loadPacient() {
+    this.uuid = await firstValueFrom(this.__dataService.pacient$);
+    if (this.uuid != 0) {
+      this.pacient = (await firstValueFrom(
+        this.__pacientService.getPacientById(this.uuid)
+      )) as UpdatePacient;
+      this.pacientForm.patchValue(this.pacient);
     }
   }
 
@@ -62,32 +64,63 @@ export class DashboardPacientComponent implements OnInit {
       { name: 'S00-T98', code: 19 },
       { name: 'V01-Y98', code: 20 },
       { name: 'U00-U99', code: 21 },
-    ]
+    ];
   }
 
   loadPacientForm() {
     this.pacientForm = new FormGroup({
       name: new FormControl(null, Validators.compose([Validators.required])),
-      lastname: new FormControl(null, Validators.compose([Validators.required])),
+      lastname: new FormControl(
+        null,
+        Validators.compose([Validators.required])
+      ),
       gender: new FormControl(null, Validators.compose([Validators.required])),
       weight: new FormControl(null, Validators.compose([Validators.required])),
       height: new FormControl(null, Validators.compose([Validators.required])),
-      ethnicity: new FormControl(null, Validators.compose([Validators.required])),
-      allergies: new FormControl(null, Validators.compose([Validators.required])),
+      ethnicity: new FormControl(
+        null,
+        Validators.compose([Validators.required])
+      ),
+      allergies: new FormControl(
+        null,
+        Validators.compose([Validators.required])
+      ),
       HTA: new FormControl(null, Validators.compose([Validators.required])),
-      cie_code: new FormControl(null, Validators.compose([Validators.required])),
-      birthday: new FormControl(null, Validators.compose([Validators.required])),
-      blood_type: new FormControl(null, Validators.compose([Validators.required])),
+      cie_code: new FormControl(
+        null,
+        Validators.compose([Validators.required])
+      ),
+      birthday: new FormControl(
+        null,
+        Validators.compose([Validators.required])
+      ),
+      blood_type: new FormControl(
+        null,
+        Validators.compose([Validators.required])
+      ),
       address: new FormControl(null, Validators.compose([Validators.required])),
       phone: new FormControl(null, Validators.compose([Validators.required])),
-    })
+    });
   }
 
-  handleClickEditPacient(){
-    this.__dataService.sendMessage(
-      'success',
-      'Success',
-      'Paciente Editado'
-    )
+  async handleClickEditPacient() {
+    
+    this.pacient = {
+      id: this.uuid,
+      ...this.pacientForm.value
+    };
+    
+    const res = await firstValueFrom(this.__pacientService.updatePacient(this.pacient))
+    if (res != null || res != undefined){
+      this.__dataService.sendMessage(
+        'success',
+        'Success',
+        'Paciente Actualizado'
+      )
+
+      setTimeout(() => {
+        this.editable = false
+      }, 2000);
+    }
   }
 }

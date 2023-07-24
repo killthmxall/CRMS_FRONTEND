@@ -30,7 +30,7 @@
               <td>{{pacient.cie_code}}</td>
               <td>
                 <p-button class="mx-1" icon="pi pi-trash" styleClass="p-button-rounded p-button-danger"
-                (click)="handleClickDeletePacient()"></p-button>
+                (click)="handleClickDeletePacient(pacient.id_pacient)"></p-button>
               </td>
             </tr>
           </ng-template>

@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Host, OnInit, Optional } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataService } from 'src/app/components/services/data.service';
+import { Paciente } from '../../interfaces/paciente.interfaces';
+import { firstValueFrom } from 'rxjs';
+import { PacienteService } from 'src/app/components/services/paciente.service';
+import { Router } from '@angular/router';
+import { PacienteComponent } from '../../paciente.component';
 
 
 @Component({
@@ -13,7 +18,9 @@ export class CreatePacientComponent implements OnInit {
   listHTA: Array<object> = []
 
   constructor(
-    private __dataService: DataService
+    private __dataService: DataService,
+    private __pacientService: PacienteService,
+    @Optional() @Host() private parent: PacienteComponent
   ) {
     this.loadPacientForm()
     this.loadHTAList()
@@ -67,11 +74,19 @@ export class CreatePacientComponent implements OnInit {
     ]
   }
 
-  handleClickSavePacient(){
-    this.__dataService.sendMessage(
-      'success',
-      'Success',
-      'Paciente Agregado'
-    )
+  async handleClickSavePacient(){
+    const pacient = this.pacientForm.value as Paciente
+
+    const res = await firstValueFrom(this.__pacientService.addPaciente(pacient))
+    if(res != null || res != undefined){
+      this.__dataService.sendMessage(
+        'success',
+        'Success',
+        'Paciente Creado'
+      )
+      setTimeout(() => {
+        this.parent.contactAction = "LIST"
+      }, 2000);
+    }
   }
 }
