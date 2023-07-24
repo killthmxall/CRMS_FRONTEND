@@ -15,8 +15,5 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule {
-  router: any; 
-  navigateTo(route: string) {
-    this.router.navigateByUrl(route);
-  }
+
 }

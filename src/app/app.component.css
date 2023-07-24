@@ -101,3 +101,23 @@ body {
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: linear-gradient(to right, #0843E2,#56AEFF);
   }
+
+
+  /* Estilo inicial del botón */
+  .btn {
+    /* Establecer el color de fondo y el color del texto en estado normal (azul) */
+    background-color: #1d50de;
+    color: white;
+}
+
+/* Cambiar el color de fondo y el color del texto al pasar el cursor sobre el botón */
+.btn:hover {
+    background-color: #1d50de;
+    color: white;
+}
+
+/* Cambiar el color de fondo y el color del texto al presionar el botón */
+.btn:active {
+    background-color: white;
+    color: blue;
+}

@@ -1,12 +1,6 @@
-
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-light gradient-custom">
-    <!-- Container wrapper -->
     <div class="container-fluid">
-        <!-- Toggle button -->
-
-  
-        <!-- Collapsible wrapper -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Navbar brand -->
             <a class="navbar-brand mt-2 mt-lg-0" href="#">
@@ -18,11 +12,11 @@
                 <li class="nav-item">
                     <a routerLink="/home" routerLinkActive="active-link" class="nav-link active" href="#">Home</a>
                 </li>
-  
+                <!--
                 <li class="nav-item">
                     <a routerLink="/login" routerLinkActive="active-link" class="nav-link" href="#">Login</a>
                 </li>
-  
+                -->
                 <li class="nav-item">
                   <a class="nav-link" href="../login/login.component.html" onclick="navigateTo('app-login')">Logout</a>
                 </li>
@@ -34,16 +28,14 @@
   
         <!-- Right elements -->
         <div class="d-flex align-items-center">
-            <!-- Icon -->
-            <a class="text-reset me-3" href="#">
-                <i class="fas fa-shopping-cart text-white"></i>
-            </a>
-  
-            <!-- Notifications -->
+
+            <form class="form-inline my-2 my-lg-0">
+                <button class="btn btn-outline-custom my-2 my-sm-0" type="submit" (click)="navegar()">Login</button>
+            </form>
+
         </div>
         <!-- Right elements -->
     </div>
-    <!-- Container wrapper -->
   </nav>
   <!-- Navbar -->
 
