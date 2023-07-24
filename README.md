@@ -1,27 +1,49 @@
 # GestionCitasMedicas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
+# CRM Medical Services
 
-## Development server
+### GitHub
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```text
+git remote add origin https://github.com/killthmxall/CRMS_FRONTEND.git
+```
+---
 
-## Code scaffolding
+Pasos para la actualización del repositorio:
+Siempre realizar un "pull" como primer paso.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```text
+git pull origin main
+```
 
-## Build
+```text
+git init
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```text
+git status
+```
 
-## Running unit tests
+```text
+git add .
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```text
+git commit -m "Describir el cambio que se hace"
+```
 
-## Running end-to-end tests
+```text
+git branch -M main
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```text
+git push -u origin main --force
+```
 
-## Further help
+---
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Git Clone:
+
+```text
+git clone https://github.com/killthmxall/CRMS_FRONTEND.git
+```
