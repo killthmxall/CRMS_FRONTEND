@@ -1,24 +1,37 @@
 <div class="container">
+
+  <h1 class="display-3">Bienvenído</h1>
+  <p class="lead">Gestión de Pacientes.</p>
+  <hr style="color: #0056b2;" />
+
   <div class="row mt-4">
-    <p-button class="mx-1" icon="pi pi-list" styleClass="p-button-rounded p-button-success" (onClick)="handleClickContact('LIST')"
-      [disabled]="contactAction === 'LIST'"></p-button>
-    <p-button class="mx-1" icon="pi pi-user-plus" styleClass="p-button-rounded" (onClick)="handleClickContact('CREATE')"
-      [disabled]="contactAction === 'CREATE'"></p-button>
+    <p-button class="mx-1" icon="pi pi-user-plus" styleClass="p-button-rounded" 
+    (onClick)="handleClickContact('CREATE')" [disabled]="contactAction === 'CREATE'"></p-button>
+
+    <p-button class="mx-1" icon="pi pi-list" styleClass="p-button-rounded p-button-success" 
+    (onClick)="handleClickContact('LIST')" [disabled]="contactAction === 'LIST'"></p-button>
+
     <p-button class="mx-1" icon="pi pi-user-edit" styleClass="p-button-rounded p-button-help"
-      (onClick)="handleClickContact('DASHBOARD')" [disabled]="contactAction === 'DASHBOARD'"></p-button>
+    (onClick)="handleClickContact('DASHBOARD')" [disabled]="contactAction === 'DASHBOARD'"></p-button>
   </div>
+
   <ng-container [ngSwitch]="contactAction">
     <div *ngSwitchCase="'CREATE'">
       <pacient-create></pacient-create>
     </div>
+
     <div *ngSwitchCase="'LIST'">
       <pacient-list></pacient-list>
     </div>
+
     <div *ngSwitchCase="'DASHBOARD'">
       <pacient-dash></pacient-dash>
     </div>
+
     <div *ngSwitchDefault>
       Default!
     </div>
+
   </ng-container>
+  
 </div>

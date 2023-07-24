@@ -5,7 +5,7 @@
         <!-- Background image for card set in CSS! -->
       </div>
       <div class="card-body">
-        <h5 class="card-title text-center">Registro Nuevo Paciente</h5>
+        <h5 class="card-title text-center">Registro de Nuevo Paciente</h5>
         <form [formGroup]="pacientForm">
 
           <div class="container">
@@ -112,10 +112,8 @@
               </div>
             </div>
           </div>
-          <button class="btn btn-lg btn-danger btn-block text-uppercase" type="submit"
-            (click)="handleClickSavePacient()">Nuevo usuario
-            Paciente</button>
-          <a class="d-block text-center mt-2 small" href="#">o Ingresar con cuenta existente</a>
+          <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"
+            (click)="handleClickSavePacient()">Registrar Paciente</button>
         </form>
       </div>
     </div>
