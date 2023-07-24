@@ -1,0 +1,121 @@
+<div class="row">
+  <div class="col-lg-10 col-xl-9 mx-auto">
+    <div class="card card-signin flex-row my-5">
+      <div class="card-img-left d-none d-md-flex">
+        <!-- Background image for card set in CSS! -->
+      </div>
+      <div class="card-body">
+        <h5 class="card-title text-center">Registro Nuevo Paciente</h5>
+        <form [formGroup]="pacientForm">
+
+          <div class="container">
+            <div class="row my-4">
+              <div class="col">
+                <span class="p-float-label">
+                  <input pInputText type="text" id="inputUserame" class="form-control" required autofocus
+                    formControlName="name">
+                  <label for="inputUserame">Nombre</label>
+                </span>
+              </div>
+              <div class="col">
+                <span class="p-float-label">
+                  <input pInputText type="text" id="inputPassword" class="form-control" required
+                    formControlName="lastname">
+                  <label for="inputPassword">Apellido</label>
+                </span>
+              </div>
+            </div>
+            <div class="row my-4">
+              <div class="col">
+                <span class="p-float-label">
+                  <input pInputText type="text" id="inputConfirmPassword" class="form-control" required
+                    formControlName="gender">
+                  <label for="inputConfirmPassword">Género</label>
+                </span>
+              </div>
+              <div class="col">
+                <span class="p-float-label">
+                  <input pInputText type="text" id="direccion" class="form-control" required autofocus
+                    formControlName="ethnicity">
+                  <label for="direccion">Etnia</label>
+                </span>
+              </div>
+            </div>
+            <div class="row my-4">
+              <div class="col">
+                <span class="p-float-label">
+                  <input pInputText type="text" id="nombre" class="form-control" required autofocus
+                    formControlName="weight">
+                  <label for="nombre">Peso</label>
+                </span>
+              </div>
+              <div class="col">
+                <span class="p-float-label">
+                  <input pInputText type="text" id="nombre" class="form-control" required autofocus
+                    formControlName="height">
+                  <label for="nombre">Altura</label>
+                </span>
+              </div>
+              <div class="col">
+                <span class="p-float-label">
+                  <input pInputText type="text" id="telefono" class="form-control" required autofocus
+                    formControlName="allergies">
+                  <label for="telefono">Alergias</label>
+                </span>
+              </div>
+              <div class="col">
+                <span class="p-float-label">
+                  <input pInputText type="text" id="inputEmail" class="form-control" required
+                    formControlName="blood_type">
+                  <label for="inputEmail">Tipo de sangre</label>
+                </span>
+              </div>
+            </div>
+            <div class="row my-4">
+              <div class="col">
+                <span class="p-float-label">
+                  <input pInputText type="text" id="inputEmail" class="form-control" required formControlName="HTA">
+                  <label for="inputEmail">HTA</label>
+                </span>
+              </div>
+              <div class="col">
+                <span class="p-float-label">
+                  <p-dropdown [options]="listHTA" optionLabel="name" [autoDisplayFirst]="false" inputId="CIE"
+                    formControlName="cie_code"></p-dropdown>
+                  <label for="CIE">CIE Code</label>
+                </span>
+              </div>
+            </div>
+            <div class="row my-4">
+              <div class="col">
+                <span class="p-float-label">
+                  <input pInputText type="text" id="inputEmail" class="form-control" required formControlName="phone">
+                  <label for="inputEmail">Teléfono</label>
+                </span>
+              </div>
+              <div class="col">
+                <span class="p-float-label">
+                  <input pInputText type="text" id="inputEmail" class="form-control" required
+                    formControlName="address">
+                  <label for="inputEmail">Dirección</label>
+                </span>
+              </div>
+            </div>
+            <div class="row my-4">
+              <div class="col">
+                <span class="p-float-label">
+                  <p-calendar [showIcon]="true" appendTo="body" formControlName="birthday"></p-calendar>
+                  <label for="inputEmail">Nacimiento</label>
+                </span>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-lg btn-danger btn-block text-uppercase" type="submit"
+            (click)="handleClickSavePacient()">Nuevo usuario
+            Paciente</button>
+          <a class="d-block text-center mt-2 small" href="#">o Ingresar con cuenta existente</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

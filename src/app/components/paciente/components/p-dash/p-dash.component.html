@@ -1,0 +1,197 @@
+<div class="row">
+  <div class="col-lg-10 col-xl-9 mx-auto">
+    <div class="card card-signin flex-row my-5">
+      <div class="card-img-left d-none d-md-flex">
+        <!-- Background image for card set in CSS! -->
+      </div>
+      <div class="card-body">
+
+          <div class="d-flex justify-content-center align-content-center">
+            <h5 class="card-title text-center mx-1">
+              Paciente
+              <ng-container *ngIf="pacient">
+                <b>{{pacient.name}} {{pacient.lastname}}</b>
+              </ng-container>
+            </h5>
+            <p-button class="mx-1 align-self-end" icon="pi pi-pencil"
+              styleClass="p-button-rounded p-button-info"
+              (click)="handleEditable()"
+              ></p-button>
+          </div>
+          <ng-container *ngIf="pacient && !editable else editPacient">
+          <div class="container">
+            <div class="row my-4">
+              <div class="col">
+                <p-chip>Uuid</p-chip>
+                <span class="mx-1">{{pacient.id_pacient}}</span>
+              </div>
+              <div class="col">
+                <p-chip>Telefono</p-chip>
+                <span class="mx-1">{{pacient.phone}}</span>
+              </div>
+            </div>
+            <div class="row my-4">
+              <div class="col">
+                <p-chip>Genero</p-chip>
+                <span class="mx-1">{{pacient.gender}}</span>
+              </div>
+              <div class="col">
+                <p-chip>Etnia</p-chip>
+                <span class="mx-1">{{pacient.ethnicity}}</span>
+              </div>
+            </div>
+            <div class="row my-4">
+              <div class="col">
+                <p-chip>Fecha de Nacimiento</p-chip>
+                <span class="mx-1">{{pacient.birthday}}</span>
+              </div>
+            </div>
+            <div class="row my-4">
+              <div class="col">
+                <p-chip>Alergias</p-chip>
+                <span class="mx-1">{{pacient.allergies}}</span>
+              </div>
+              <div class="col">
+                <p-chip>HTA</p-chip>
+                <span class="mx-1">{{pacient.HTA}}</span>
+              </div>
+              <div class="col">
+                <p-chip>CIE Code</p-chip>
+                <span class="mx-1">{{pacient.cie_code}}</span>
+              </div>
+            </div>
+            <div class="row my-4">
+              <div class="col">
+                <p-chip>Peso</p-chip>
+                <span class="mx-1">{{pacient.weight}}</span>
+              </div>
+              <div class="col">
+                <p-chip>Altura</p-chip>
+                <span class="mx-1">{{pacient.height}}</span>
+              </div>
+              <div class="col">
+                <p-chip>Tipo de Sangre</p-chip>
+                <span class="mx-1">{{pacient.blood_type}}</span>
+              </div>
+            </div>
+            <div class="row my-4">
+              <div class="col">
+                <p-chip>Direccion</p-chip>
+                <span class="mx-1">{{pacient.address}}</span>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #editPacient>
+  <form [formGroup]="pacientForm">
+    <div class="container">
+      <div class="row my-4">
+        <div class="col">
+          <span class="p-float-label">
+            <input pInputText type="text" id="inputUserame" class="form-control" required autofocus
+              formControlName="name">
+            <label for="inputUserame">Nombre</label>
+          </span>
+        </div>
+        <div class="col">
+          <span class="p-float-label">
+            <input pInputText type="text" id="inputPassword" class="form-control" required
+              formControlName="lastname">
+            <label for="inputPassword">Apellido</label>
+          </span>
+        </div>
+      </div>
+      <div class="row my-4">
+        <div class="col">
+          <span class="p-float-label">
+            <input pInputText type="text" id="inputConfirmPassword" class="form-control" required
+              formControlName="gender">
+            <label for="inputConfirmPassword">Género</label>
+          </span>
+        </div>
+        <div class="col">
+          <span class="p-float-label">
+            <input pInputText type="text" id="direccion" class="form-control" required autofocus
+              formControlName="ethnicity">
+            <label for="direccion">Etnia</label>
+          </span>
+        </div>
+      </div>
+      <div class="row my-4">
+        <div class="col">
+          <span class="p-float-label">
+            <input pInputText type="text" id="nombre" class="form-control" required autofocus
+              formControlName="weight">
+            <label for="nombre">Peso</label>
+          </span>
+        </div>
+        <div class="col">
+          <span class="p-float-label">
+            <input pInputText type="text" id="nombre" class="form-control" required autofocus
+              formControlName="height">
+            <label for="nombre">Altura</label>
+          </span>
+        </div>
+        <div class="col">
+          <span class="p-float-label">
+            <input pInputText type="text" id="telefono" class="form-control" required autofocus
+              formControlName="allergies">
+            <label for="telefono">Alergias</label>
+          </span>
+        </div>
+        <div class="col">
+          <span class="p-float-label">
+            <input pInputText type="text" id="inputEmail" class="form-control" required
+              formControlName="blood_type">
+            <label for="inputEmail">Tipo de sangre</label>
+          </span>
+        </div>
+      </div>
+      <div class="row my-4">
+        <div class="col">
+          <span class="p-float-label">
+            <input pInputText type="text" id="inputEmail" class="form-control" required formControlName="HTA">
+            <label for="inputEmail">HTA</label>
+          </span>
+        </div>
+        <div class="col">
+          <span class="p-float-label">
+            <p-dropdown [options]="listHTA" optionLabel="name" [autoDisplayFirst]="false" inputId="CIE"
+              formControlName="cie_code"></p-dropdown>
+            <label for="CIE">CIE Code</label>
+          </span>
+        </div>
+      </div>
+      <div class="row my-4">
+        <div class="col">
+          <span class="p-float-label">
+            <input pInputText type="text" id="inputEmail" class="form-control" required formControlName="phone">
+            <label for="inputEmail">Teléfono</label>
+          </span>
+        </div>
+        <div class="col">
+          <span class="p-float-label">
+            <input pInputText type="text" id="inputEmail" class="form-control" required
+              formControlName="address">
+            <label for="inputEmail">Dirección</label>
+          </span>
+        </div>
+      </div>
+      <div class="row my-4">
+        <div class="col">
+          <span class="p-float-label">
+            <p-calendar [showIcon]="true" appendTo="body" formControlName="birthday"></p-calendar>
+            <label for="inputEmail">Nacimiento</label>
+          </span>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-lg btn-danger btn-block text-uppercase" type="submit"
+    (click)="handleClickEditPacient()">Actualizar</button>
+  </form>
+</ng-template>

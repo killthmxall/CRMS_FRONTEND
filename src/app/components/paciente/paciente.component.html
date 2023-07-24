@@ -1,122 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historias Clínicas</title>
-
-<!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
-
-<!-- Project CSS -->
-    <link href="./paciente.component.css" rel="stylesheet">
-
-</head>
-
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-10 col-xl-9 mx-auto">
-        <div class="card card-signin flex-row my-5">
-          <div class="card-img-left d-none d-md-flex">
-             <!-- Background image for card set in CSS! -->
-          </div>
-          <div class="card-body">
-            <h5 class="card-title text-center">Registro Nuevo Paciente</h5>
-            <form class="form-signin">
-
-              <div class="form-label-group">
-                <input type="text" id="inputUserame" class="form-control" placeholder="Nombre" required autofocus>
-                <label for="inputUserame">Nombre</label>
-              </div>
-
-              <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Apellido" required>
-                <label for="inputPassword">Apellido</label>
-              </div>
-
-              <div class="form-label-group">
-                <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Género" required>
-                <label for="inputConfirmPassword">Género</label>
-              </div>
-
-              <div class="form-label-group">
-                <input type="text" id="nombre" class="form-control" placeholder="Peso" required autofocus>
-                <label for="nombre">Peso</label>
-              </div>
-
-              <div class="form-label-group">
-                <input type="text" id="direccion" class="form-control" placeholder="Etnia" required autofocus>
-                <label for="direccion">Etnia</label>
-              </div>
-
-              <div class="form-label-group">
-                <input type="text" id="telefono" class="form-control" placeholder="Alergias" required autofocus>
-                <label for="telefono">Alergias</label>
-              </div>
-
-              <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="HTA" required>
-                <label for="inputEmail">HTA</label>
-              </div>
-              <div class="form-label-group">
-                <label for="inputEmail">CIE-CODE =</label>
-                <select class="form-select" size="3" aria-label="size 3 select example">
-                    <option selected>ESCOGER</option>
-                    <option value="1">A00-B99</option>
-                    <option value="2">C00-D48</option>
-                    <option value="3">D50-D89</option>
-                    <option value="4">E00-E90</option>
-                    <option value="5">F00-F99</option>
-                    <option value="6">G00-G99</option>
-                    <option value="7">H00-H59</option>
-                    <option value="8">H60-H95</option>
-                    <option value="9">I00-I99</option>
-                    <option value="10">J00-J99</option>
-                    <option value="11">K00-K93</option>
-                    <option value="12">L00-L99</option>
-                    <option value="13">M00-M99</option>
-                    <option value="14">N00-N99</option>
-                    <option value="15">O00-O99</option>
-                    <option value="16">P00-P96</option>
-                    <option value="17">Q00-Q99</option>
-                    <option value="18">R00-R99</option>
-                    <option value="19">S00-T98</option>
-                    <option value="20">V01-Y98</option>
-                    <option value="21">U00-U99</option>
-                    
-                  </select>
-              </div>
-              <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="DD-MM-AAAA" required>
-                <label for="inputEmail">Nacimiento</label>
-              </div>
-              <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Tipo de sangre" required>
-                <label for="inputEmail">Tipo de sangre</label>
-              </div>
-              <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Dirección" required>
-                <label for="inputEmail">Dirección</label>
-              </div>
-              <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Teléfono" required>
-                <label for="inputEmail">Teléfono</label>
-              </div>
-              <button class="btn btn-lg btn-danger btn-block text-uppercase" type="submit">Nuevo usuario Paciente</button>
-              <a class="d-block text-center mt-2 small" href="#">o Ingresar con cuenta existente</a>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="container">
+  <div class="row mt-4">
+    <p-button class="mx-1" icon="pi pi-list" styleClass="p-button-rounded p-button-success" (onClick)="handleClickContact('LIST')"
+      [disabled]="contactAction === 'LIST'"></p-button>
+    <p-button class="mx-1" icon="pi pi-user-plus" styleClass="p-button-rounded" (onClick)="handleClickContact('CREATE')"
+      [disabled]="contactAction === 'CREATE'"></p-button>
+    <p-button class="mx-1" icon="pi pi-user-edit" styleClass="p-button-rounded p-button-help"
+      (onClick)="handleClickContact('DASHBOARD')" [disabled]="contactAction === 'DASHBOARD'"></p-button>
   </div>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-</html>
+  <ng-container [ngSwitch]="contactAction">
+    <div *ngSwitchCase="'CREATE'">
+      <pacient-create></pacient-create>
+    </div>
+    <div *ngSwitchCase="'LIST'">
+      <pacient-list></pacient-list>
+    </div>
+    <div *ngSwitchCase="'DASHBOARD'">
+      <pacient-dash></pacient-dash>
+    </div>
+    <div *ngSwitchDefault>
+      Default!
+    </div>
+  </ng-container>
+</div>

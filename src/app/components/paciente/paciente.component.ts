@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-paciente',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class PacienteComponent {
 
+  contactAction: string = "LIST"
+
+  handleClickContact(type: string): void {
+    this.contactAction = type
+  }
 }
