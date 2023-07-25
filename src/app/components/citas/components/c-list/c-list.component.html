@@ -1,1 +1,57 @@
-<p>c-list works!</p>
+<div class="row">
+    <div class="col-lg-17 col-xl-17 mx-auto">
+      <div class="card card-signin flex-row my-5">
+        <div class="card-img-left d-none d-md-flex">
+          <!-- Background image for card set in CSS! -->
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center">Lista de Citas</h5>
+          <p-table [value]="citas" selectionMode="single" dataKey="id_citas" (onRowSelect)="onRowSelect($event)">
+            <ng-template pTemplate="header">
+              <tr>
+                <th><b>UUID</b></th>
+                <th>Tipo Cita</th>
+                <th>Descripción</th>
+                <th>Cita</th>
+                <th>Número de Cita</th>
+                <th>Sala de consulta</th>
+                <th>Horario</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+                <th>Paciente</th>
+                <th>Médico</th>
+                <th>Ayudante</th>
+                <th>Observaciones</th>
+                <th>Registrado por</th>
+                <th>Fecha de registro</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-citas>
+              <tr [pSelectableRow]="citas">
+                <td>{{citas.id_citas}}</td>
+                <td>{{citas.query_type}}</td>
+                <td>{{citas.query_description}}</td>
+                <td>{{citas.cite}}</td>
+                <td>{{citas.number_cite}}</td>
+                <td>{{citas.consulting_room}}</td>
+                <td>{{citas.horary}}</td>
+                <td>{{citas.date}}</td>
+                <td>{{citas.state}}</td>
+                <td>{{citas.pacient}}</td>
+                <td>{{citas.medic}}</td>
+                <td>{{citas.assistant}}</td>
+                <td>{{citas.observations}}</td>
+                <td>{{citas.register_by}}</td>
+                <td>{{citas.created_date}}</td>
+                <td>
+                  <p-button class="mx-1" icon="pi pi-trash" styleClass="p-button-rounded p-button-danger"
+                  (click)="handleClickDeleteCitas(citas.id_citas)"></p-button>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
