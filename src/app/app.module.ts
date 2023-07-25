@@ -28,6 +28,9 @@ import { CitasComponent } from './components/citas/citas.component';
 import { MCreateComponent } from './components/medico/components/m-create/m-create.component';
 import { MDashComponent } from './components/medico/components/m-dash/m-dash.component';
 import { MListComponent } from './components/medico/components/m-list/m-list.component';
+import { CListComponent } from './components/citas/components/c-list/c-list.component';
+import { CCreateComponent } from './components/citas/components/c-create/c-create.component';
+import { CDashComponent } from './components/citas/components/c-dash/c-dash.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,10 @@ import { MListComponent } from './components/medico/components/m-list/m-list.com
     CitasComponent,
     MCreateComponent,
     MDashComponent,
-    MListComponent
+    MListComponent,
+    CListComponent,
+    CCreateComponent,
+    CDashComponent
   ],
   imports: [
     BrowserModule,

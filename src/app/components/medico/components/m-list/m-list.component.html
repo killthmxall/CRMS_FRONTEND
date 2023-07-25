@@ -1,1 +1,49 @@
-<p>m-list works!</p>
+<div class="row">
+    <div class="col-lg-10 col-xl-12 mx-auto">
+      <div class="card card-signin flex-row my-5">
+        <div class="card-img-left d-none d-md-flex">
+          <!-- Background image for card set in CSS! -->
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center">Lista de Medicos</h5>
+          <p-table [value]="medicos" selectionMode="single" dataKey="id_medico" (onRowSelect)="onRowSelect($event)">
+            <ng-template pTemplate="header">
+              <tr>
+                <th><b>UUID</b></th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Cédula</th>
+                <th>Genero</th>
+                <th>Especialidad</th>
+                <th>Correo</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+                <th>Horario Entrada</th>
+                <th>Horario Salida</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-medico>
+              <tr [pSelectableRow]="medico">
+                <td>{{medico.id_medico}}</td>
+                <td>{{medico.name}}</td>
+                <td>{{medico.lastname}}</td>
+                <td>{{medico.cedula}}</td>
+                <td>{{medico.gender}}</td>
+                <td>{{medico.especiality}}</td>
+                <td>{{medico.email}}</td>
+                <td>{{medico.phone}}</td>
+                <td>{{medico.address}}</td>
+                <td>{{medico.schedule_start}}</td>
+                <td>{{medico.schedule_end}}</td>
+                <td>
+                  <p-button class="mx-1" icon="pi pi-trash" styleClass="p-button-rounded p-button-danger"
+                  (click)="handleClickDeleteMedico(medico.id_medico)"></p-button>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
+  

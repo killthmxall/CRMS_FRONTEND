@@ -1,1 +1,171 @@
-<p>m-dash works!</p>
+<div class="row">
+    <div class="col-lg-10 col-xl-9 mx-auto">
+      <div class="card card-signin flex-row my-5">
+        <div class="card-img-left d-none d-md-flex">
+          <!-- Background image for card set in CSS! -->
+        </div>
+        <div class="card-body">
+  
+            <div class="d-flex justify-content-center align-content-center">
+              <h5 class="card-title text-center mx-1">
+                Actualizar Medico
+                <ng-container *ngIf="medico">
+                  <b>{{medico.name}} {{medico.lastname}}</b>
+                </ng-container>
+              </h5>
+              <p-button class="mx-1 align-self-end" icon="pi pi-pencil"
+                styleClass="p-button-rounded p-button-info"
+                (click)="handleEditable()"
+                ></p-button>
+            </div>
+            <ng-container *ngIf="medico && !editable else editMedico">
+            <div class="container">
+              <div class="row my-4">
+                <div class="col">
+                  <p-chip>Uuid</p-chip>
+                  <span class="mx-1">{{medico.id}}</span>
+                </div>
+                <div class="col">
+                  <p-chip>Teléfono</p-chip>
+                  <span class="mx-1">{{medico.phone}}</span>
+                </div>
+              </div>
+              <div class="row my-4">
+                <div class="col">
+                  <p-chip>Género</p-chip>
+                  <span class="mx-1">{{medico.gender}}</span>
+                </div>
+                <div class="col">
+                  <p-chip>Cédula</p-chip>
+                  <span class="mx-1">{{medico.cedula}}</span>
+                </div>
+              </div>
+
+              <div class="row my-4">
+                <div class="col">
+                  <p-chip>Especialidad</p-chip>
+                  <span class="mx-1">{{medico.especiality}}</span>
+                </div>
+              </div>
+
+              <div class="row my-4">
+                <div class="col">
+                  <p-chip>Correo</p-chip>
+                  <span class="mx-1">{{medico.email}}</span>
+                </div>
+                <div class="col">
+                  <p-chip>Dirección</p-chip>
+                  <span class="mx-1">{{medico.address}}</span>
+                </div>
+                <div class="col">
+                  <p-chip>Horario de Entrada</p-chip>
+                  <span class="mx-1">{{medico.schedule_start}}</span>
+                </div>
+              </div>
+
+              <div class="row my-4">
+                <div class="col">
+                  <p-chip>Horario de Entrada</p-chip>
+                  <span class="mx-1">{{medico.schedule_end}}</span>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #editMedico>
+    <form [formGroup]="medicoForm">
+      <div class="container">
+        <div class="row my-4">
+          <div class="col">
+            <span class="p-float-label">
+              <input pInputText type="text" id="inputUserame" class="form-control" required autofocus
+                formControlName="name">
+              <label for="inputUserame">Nombre</label>
+            </span>
+          </div>
+          <div class="col">
+            <span class="p-float-label">
+              <input pInputText type="text" id="inputPassword" class="form-control" required
+                formControlName="lastname">
+              <label for="inputPassword">Apellido</label>
+            </span>
+          </div>
+          <div class="col">
+            <span class="p-float-label">
+              <input pInputText type="text" id="inputConfirmPassword" class="form-control" required
+                formControlName="cedula">
+              <label for="inputConfirmPassword">Cédula</label>
+            </span>
+          </div>
+        </div>
+        <div class="row my-4">
+          <div class="col">
+            <span class="p-float-label">
+              <input pInputText type="text" id="inputConfirmPassword" class="form-control" required
+                formControlName="gender">
+              <label for="inputConfirmPassword">Género</label>
+            </span>
+          </div>
+
+          <div class="col">
+            <span class="p-float-label">
+              <p-dropdown [options]="listEspe" optionLabel="name" [autoDisplayFirst]="false" inputId="Especialidad"
+                optionValue="code" formControlName="especiality"></p-dropdown>
+              <label for="Especialidad">Especialidad</label>
+            </span>
+        </div>
+
+        </div>
+        <div class="row my-4">
+          <div class="col">
+            <span class="p-float-label">
+              <input pInputText type="text" id="nombre" class="form-control" required autofocus
+                formControlName="email">
+              <label for="nombre">Correo</label>
+            </span>
+          </div>
+          <div class="col">
+            <span class="p-float-label">
+              <input pInputText type="text" id="nombre" class="form-control" required autofocus
+                formControlName="phone">
+              <label for="nombre">Teléfono</label>
+            </span>
+          </div>
+          <div class="col">
+            <span class="p-float-label">
+              <input pInputText type="text" id="telefono" class="form-control" required autofocus
+                formControlName="address">
+              <label for="telefono">Dirección</label>
+            </span>
+          </div>
+        </div>
+        <div class="row my-4">
+
+          <div class="col">
+            <span class="p-float-label">
+              <p-dropdown [options]="listSchedule" optionLabel="name" optionValue="code" [autoDisplayFirst]="false" inputId="horarioEntrada"
+                formControlName="schedule_start"></p-dropdown>
+              <label for="horarioEntrada">Horario de Entrada</label>
+            </span>
+          </div>
+
+          <div class="col">
+            <span class="p-float-label">
+              <p-dropdown [options]="listSchedule" optionLabel="name" optionValue="code" [autoDisplayFirst]="false" inputId="horarioSalida"
+                formControlName="schedule_end"></p-dropdown>
+              <label for="horarioSalida">Horario de Salida</label>
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+      <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"
+      (click)="handleClickEditMedico()">Actualizar</button>
+    </form>
+  </ng-template>
+  

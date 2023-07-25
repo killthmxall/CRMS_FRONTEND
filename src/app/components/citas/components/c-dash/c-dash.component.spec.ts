@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MDashComponent } from './m-dash.component';
+import { CDashComponent } from './c-dash.component';
 
-describe('MDashComponent', () => {
-  let component: MDashComponent;
-  let fixture: ComponentFixture<MDashComponent>;
+describe('CDashComponent', () => {
+  let component: CDashComponent;
+  let fixture: ComponentFixture<CDashComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MDashComponent]
+      declarations: [CDashComponent]
     });
-    fixture = TestBed.createComponent(MDashComponent);
+    fixture = TestBed.createComponent(CDashComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

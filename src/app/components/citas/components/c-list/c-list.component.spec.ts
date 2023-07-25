@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CitasComponent } from './citas.component';
+import { CListComponent } from './c-list.component';
 
-describe('CitasComponent', () => {
-  let component: CitasComponent;
-  let fixture: ComponentFixture<CitasComponent>;
+describe('CListComponent', () => {
+  let component: CListComponent;
+  let fixture: ComponentFixture<CListComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CitasComponent]
+      declarations: [CListComponent]
     });
-    fixture = TestBed.createComponent(CitasComponent);
+    fixture = TestBed.createComponent(CListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
