@@ -1,52 +1,52 @@
-export interface Cita {
+export interface Citas {
   query_type: String,
   query_description: String,
-  site: String,
+  cite: String,
   number_cite: String,
   consulting_room: String,
   horary: Date,
-  id_pacient: Number,
+  date: Date,
   state: String,
-  admin: String,
+  pacient: String,
+  medic: String,
   assistant: String,
   observations: String,
-  reminder_sent: Boolean,
   register_by: number,
   created_date: Date
 }
 
-export interface UpdateCita {
+export interface UpdateCitas {
   id: number,
   query_type: String,
   query_description: String,
-  site: String,
+  cite: String,
   number_cite: String,
   consulting_room: String,
   horary: Date,
-  id_pacient: Number,
+  date: Date,
   state: String,
-  admin: String,
+  pacient: String,
+  Medic: String,
   assistant: String,
   observations: String,
-  reminder_sent: Boolean,
   register_by: number,
   created_date: Date
 }
 
-export interface CitaList{
+export interface CitasList{
   id_cite: number,
   query_type: String,
   query_description: String,
-  site: String,
+  cite: String,
   number_cite: String,
   consulting_room: String,
   horary: Date,
-  id_pacient: Number,
+  date: Date,
   state: String,
-  admin: String,
+  pacient: String,
+  Medic: String,
   assistant: String,
   observations: String,
-  reminder_sent: Boolean,
   register_by: number,
   created_date: Date
 }

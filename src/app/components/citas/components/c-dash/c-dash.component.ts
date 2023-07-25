@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-c-dash',
+  selector: 'citas-dash',
   templateUrl: './c-dash.component.html',
   styleUrls: ['./c-dash.component.css']
 })
