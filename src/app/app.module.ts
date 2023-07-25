@@ -23,6 +23,8 @@ import { TableModule } from 'primeng/table';
 import { ListPacientComponent } from './components/paciente/components/p-list/p-list.component';
 import { DashboardPacientComponent } from './components/paciente/components/p-dash/p-dash.component';
 import { ChipModule } from 'primeng/chip';
+import { AdminComponent } from './components/admin/admin.component';
+import { CitasComponent } from './components/citas/citas.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { ChipModule } from 'primeng/chip';
     PacienteComponent,
     CreatePacientComponent,
     ListPacientComponent,
-    DashboardPacientComponent
+    DashboardPacientComponent,
+    AdminComponent,
+    CitasComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,52 @@
+<style>
+.btn-square-md {
+    width: 100px !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    height: 100px !important;
+    text-align: center;
+    padding: 0px;
+    font-size:12px;
+    }
+</style>
+
+<section style="background-color: #eee;">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col">
+          <h1 class="display-3">Bienvenido, Administrador</h1>
+          <p class="lead">Gestión de módulos.</p>
+          <hr style="color: #0056b2;" />
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <h5 style="font-family:verdana" class="my-3">SIS-MEG</h5>
+              <p class="text-muted mb-1">Bienvenído: Admin</p>
+              <div class="d-flex justify-content-center mb-2">
+              <img src="https://pbs.twimg.com/media/Fkq8BS4XkAEW-BA.jpg" alt="avatar"
+                class="rounded-circle img-fluid" style="width: 150px;">
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-lg-8">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h1>Elegir el módulo a gestionar.</h1>
+
+                <button style="margin: 20px; font-size: 20px;" (click)="navegar_medico()" type="button" class="btn btn-primary btn-square-md"><b>Médico</b></button>
+                <button style="margin: 20px; font-size: 20px;" (click)="navegar_paciente()" type="button" class="btn btn-primary btn-square-md"><b>Paciente</b></button>
+                <button style="margin: 20px; font-size: 20px;" (click)="navegar_citas()" type="button" class="btn btn-primary btn-square-md"><b>Citas</b></button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

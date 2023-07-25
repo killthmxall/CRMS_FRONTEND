@@ -26,8 +26,8 @@ export class AppComponent implements OnInit {
     this.addToast()
   }
 
-  navegar() {
-    this.router.navigate(['/login']);
+  navegar_gestion() {
+    this.router.navigate(['/admin']);
   }
 
   public addToast(): void{

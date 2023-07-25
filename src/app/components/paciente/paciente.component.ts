@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PacienteComponent {
 
-  contactAction: string = "LIST"
+  contactAction: string = "CREATE"
 
   handleClickContact(type: string): void {
     this.contactAction = type

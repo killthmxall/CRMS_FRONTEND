@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   navegarlogin() {
     this.router.navigate(['/paciente']);
   }
-  create() {
-    this.router.navigate(['/registro']);
+  gestion() {
+    this.router.navigate(['/admin']);
   }
 }
