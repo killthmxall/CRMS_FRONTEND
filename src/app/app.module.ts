@@ -25,6 +25,9 @@ import { DashboardPacientComponent } from './components/paciente/components/p-da
 import { ChipModule } from 'primeng/chip';
 import { AdminComponent } from './components/admin/admin.component';
 import { CitasComponent } from './components/citas/citas.component';
+import { MCreateComponent } from './components/medico/components/m-create/m-create.component';
+import { MDashComponent } from './components/medico/components/m-dash/m-dash.component';
+import { MListComponent } from './components/medico/components/m-list/m-list.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { CitasComponent } from './components/citas/citas.component';
     ListPacientComponent,
     DashboardPacientComponent,
     AdminComponent,
-    CitasComponent
+    CitasComponent,
+    MCreateComponent,
+    MDashComponent,
+    MListComponent
   ],
   imports: [
     BrowserModule,

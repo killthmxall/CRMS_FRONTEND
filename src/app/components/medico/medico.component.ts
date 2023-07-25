@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class MedicoComponent {
 
+  contactAction: string = "CREATE"
+
+  handleClickContact(type: string): void {
+    this.contactAction = type
+  }
 }
