@@ -35,18 +35,16 @@ export class MCreateComponent implements OnInit  {
   
     loadMedicoForm() {
       this.medicoForm = new FormGroup({
-        cedula: new FormControl(null, Validators.compose([Validators.required])),
         name: new FormControl(null, Validators.compose([Validators.required])),
+        cedula: new FormControl(null, Validators.compose([Validators.required])),
         lastname: new FormControl(null, Validators.compose([Validators.required])),
         gender: new FormControl(null, Validators.compose([Validators.required])),
-        speciality: new FormControl(null, Validators.compose([Validators.required])),
+        especiality: new FormControl(null, Validators.compose([Validators.required])),
         phone: new FormControl(null, Validators.compose([Validators.required])),
         email: new FormControl(null, Validators.compose([Validators.required])),
         address: new FormControl(null, Validators.compose([Validators.required])),
         schedule_start: new FormControl(null, Validators.compose([Validators.required])),
-        schedule_end: new FormControl(null, Validators.compose([Validators.required])),
-        experience: new FormControl(null, Validators.compose([Validators.required])),
-        certifications: new FormControl(null, Validators.compose([Validators.required]))      
+        schedule_end: new FormControl(null, Validators.compose([Validators.required])), 
       })
     }
 
