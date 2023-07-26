@@ -4,12 +4,12 @@ import { Medico, UpdateMedico } from '../medico/interfaces/medico.interfaces';
 
 @Injectable({ providedIn: 'root' })
 export class MedicoService {
-  private readonly url = 'http://localhost:8000/medicos';
+  private readonly url = 'http://localhost:8000/medics';
 
   constructor(private _http: HttpClient) {}
 
   getMedicoById(uuid: number) {
-    return this._http.get(`${this.url}/get_medico/${uuid}`);
+    return this._http.get(`${this.url}/get_medic/${uuid}`);
   }
 
   getAllMedicos() {
@@ -17,15 +17,15 @@ export class MedicoService {
   }
 
   addMedico(medico: Medico) {
-    return this._http.post(`${this.url}/add_medico`, medico);
+    return this._http.post(`${this.url}/add_medic`, medico);
   }
 
   updateMedico(medico: UpdateMedico) {
-    return this._http.patch(`${this.url}/edit_medico/`, medico);
+    return this._http.patch(`${this.url}/edit_medic/`, medico);
   }
 
   deleteMedico(uuid: number) {
-    return this._http.delete(`${this.url}/delete_medico/${uuid}`);
+    return this._http.delete(`${this.url}/delete_medic/${uuid}`);
   }
 }
 

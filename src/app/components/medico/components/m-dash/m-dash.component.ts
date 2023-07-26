@@ -4,6 +4,7 @@ import { UpdateMedico } from '../../interfaces/medico.interfaces';
 import { DataService } from 'src/app/components/services/data.service';
 import { MedicoService } from 'src/app/components/services/medico.service';
 import { firstValueFrom } from 'rxjs';
+import { Time } from '@angular/common';
 
 
 @Component({
@@ -22,13 +23,12 @@ export class MDashComponent implements OnInit {
   constructor(
     private __dataService: DataService,
     private __medicoService: MedicoService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.loadMedico();
     this.loadMedicoForm();
     this.loadEspecialityList();
-    this.loadSchedule();
   }
 
   handleEditable() {
@@ -41,6 +41,10 @@ export class MDashComponent implements OnInit {
       this.medico = (await firstValueFrom(
         this.__medicoService.getMedicoById(this.uuid)
       )) as UpdateMedico;
+
+      this.medico.schedule_start = this.medico.schedule_start.slice(0,-3)
+      this.medico.schedule_end = this.medico.schedule_end.slice(0,-3)
+
       this.medicoForm.patchValue(this.medico);
     }
   }
@@ -64,65 +68,32 @@ export class MDashComponent implements OnInit {
     ]
   }
 
-  loadSchedule() {
-    this.listSchedule = [
-      { name: '07:00 - 08:00', code: 1 },
-      { name: '09:00 - 10:00', code: 2 },
-      { name: '11:00 - 12:00', code: 3 },
-      { name: '13:00 - 14:00', code: 4 },
-      { name: '15:00 - 16:00', code: 5 },
-      { name: '17:00 - 18:00', code: 6 },
-      { name: '19:00 - 20:00', code: 7 },
-      { name: '21:00 - 22:00', code: 8 },
-      { name: '23:00 - 00:00', code: 9 }
-      ]
-    }
-
   loadMedicoForm() {
     this.medicoForm = new FormGroup({
+      cedula: new FormControl(null, Validators.compose([Validators.required])),
       name: new FormControl(null, Validators.compose([Validators.required])),
-      lastname: new FormControl(
-        null,
-        Validators.compose([Validators.required])
-      ),
+      lastname: new FormControl(null, Validators.compose([Validators.required])),
       gender: new FormControl(null, Validators.compose([Validators.required])),
-      weight: new FormControl(null, Validators.compose([Validators.required])),
-      height: new FormControl(null, Validators.compose([Validators.required])),
-      ethnicity: new FormControl(
-        null,
-        Validators.compose([Validators.required])
-      ),
-      allergies: new FormControl(
-        null,
-        Validators.compose([Validators.required])
-      ),
-      HTA: new FormControl(null, Validators.compose([Validators.required])),
-      cie_code: new FormControl(
-        null,
-        Validators.compose([Validators.required])
-      ),
-      birthday: new FormControl(
-        null,
-        Validators.compose([Validators.required])
-      ),
-      blood_type: new FormControl(
-        null,
-        Validators.compose([Validators.required])
-      ),
-      address: new FormControl(null, Validators.compose([Validators.required])),
+      speciality: new FormControl(null, Validators.compose([Validators.required])),
       phone: new FormControl(null, Validators.compose([Validators.required])),
+      email: new FormControl(null, Validators.compose([Validators.required])),
+      address: new FormControl(null, Validators.compose([Validators.required])),
+      schedule_start: new FormControl("", Validators.compose([Validators.required])),
+      schedule_end: new FormControl("", Validators.compose([Validators.required])),
+      experience: new FormControl(null, Validators.compose([Validators.required])),
+      certifications: new FormControl(null, Validators.compose([Validators.required])),
     });
   }
 
   async handleClickEditMedico() {
-    
+
     this.medico = {
       id: this.uuid,
       ...this.medicoForm.value
     };
-    
+
     const res = await firstValueFrom(this.__medicoService.updateMedico(this.medico))
-    if (res != null || res != undefined){
+    if (res != null || res != undefined) {
       this.__dataService.sendMessage(
         'success',
         'Success',

@@ -31,6 +31,7 @@ import { MListComponent } from './components/medico/components/m-list/m-list.com
 import { CListComponent } from './components/citas/components/c-list/c-list.component';
 import { CCreateComponent } from './components/citas/components/c-create/c-create.component';
 import { CDashComponent } from './components/citas/components/c-dash/c-dash.component';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { CDashComponent } from './components/citas/components/c-dash/c-dash.comp
     CalendarModule,
     ToastModule,
     TableModule,
-    ChipModule
+    ChipModule,
+    InputNumberModule
   ],
   providers: [
     MessageService

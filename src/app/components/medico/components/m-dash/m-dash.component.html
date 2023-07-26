@@ -5,7 +5,7 @@
           <!-- Background image for card set in CSS! -->
         </div>
         <div class="card-body">
-  
+
             <div class="d-flex justify-content-center align-content-center">
               <h5 class="card-title text-center mx-1">
                 Actualizar Medico
@@ -23,7 +23,7 @@
               <div class="row my-4">
                 <div class="col">
                   <p-chip>Uuid</p-chip>
-                  <span class="mx-1">{{medico.id}}</span>
+                  <span class="mx-1">{{medico.id_medic}}</span>
                 </div>
                 <div class="col">
                   <p-chip>Teléfono</p-chip>
@@ -44,7 +44,7 @@
               <div class="row my-4">
                 <div class="col">
                   <p-chip>Especialidad</p-chip>
-                  <span class="mx-1">{{medico.especiality}}</span>
+                  <span class="mx-1">{{medico.speciality}}</span>
                 </div>
               </div>
 
@@ -75,11 +75,13 @@
       </div>
     </div>
   </div>
-  
+
   <ng-template #editMedico>
     <form [formGroup]="medicoForm">
-      <div class="container">
-        <div class="row my-4">
+      <div class="container"> <!------------------->
+
+        <div class="row my-4"> <!------------------->
+
           <div class="col">
             <span class="p-float-label">
               <input pInputText type="text" id="inputUserame" class="form-control" required autofocus
@@ -87,6 +89,7 @@
               <label for="inputUserame">Nombre</label>
             </span>
           </div>
+
           <div class="col">
             <span class="p-float-label">
               <input pInputText type="text" id="inputPassword" class="form-control" required
@@ -94,6 +97,11 @@
               <label for="inputPassword">Apellido</label>
             </span>
           </div>
+
+        </div> <!------------------->
+
+        <div class="row my-4"> <!------------------->
+
           <div class="col">
             <span class="p-float-label">
               <input pInputText type="text" id="inputConfirmPassword" class="form-control" required
@@ -101,8 +109,7 @@
               <label for="inputConfirmPassword">Cédula</label>
             </span>
           </div>
-        </div>
-        <div class="row my-4">
+
           <div class="col">
             <span class="p-float-label">
               <input pInputText type="text" id="inputConfirmPassword" class="form-control" required
@@ -111,61 +118,81 @@
             </span>
           </div>
 
+        </div> <!------------------->
+
+        <div class="row my-4"> <!------------------->
+
           <div class="col">
             <span class="p-float-label">
               <p-dropdown [options]="listEspe" optionLabel="name" [autoDisplayFirst]="false" inputId="Especialidad"
-                optionValue="code" formControlName="especiality"></p-dropdown>
+                optionValue="name" formControlName="speciality" [style]="{'minWidth':'100%'}"></p-dropdown>
               <label for="Especialidad">Especialidad</label>
             </span>
-        </div>
+          </div>
 
-        </div>
-        <div class="row my-4">
           <div class="col">
             <span class="p-float-label">
               <input pInputText type="text" id="nombre" class="form-control" required autofocus
                 formControlName="email">
-              <label for="nombre">Correo</label>
+              <label for="nombre">Correo Electrónico</label>
             </span>
           </div>
+
+        </div> <!------------------->
+
+        <div class="row my-4"> <!------------------->
+
           <div class="col">
             <span class="p-float-label">
               <input pInputText type="text" id="nombre" class="form-control" required autofocus
                 formControlName="phone">
-              <label for="nombre">Teléfono</label>
+              <label for="nombre">Numero de Telefono</label>
             </span>
           </div>
+
           <div class="col">
             <span class="p-float-label">
               <input pInputText type="text" id="telefono" class="form-control" required autofocus
                 formControlName="address">
-              <label for="telefono">Dirección</label>
+              <label for="telefono">Direccion</label>
             </span>
           </div>
-        </div>
+
+        </div> <!------------------->
+
+        <div class="row my-4"> <!------------------->
+
+          <div class="col">
+            <span class="p-float-label">
+              <p-calendar [timeOnly]="true" formControlName="schedule_start" dataType="string"></p-calendar>
+              <label for="horario_entrada">Hora de Entrada</label>
+            </span>
+          </div>
+
+          <div class="col">
+            <span class="p-float-label">
+              <p-calendar [timeOnly]="true" formControlName="schedule_end" dataType="string"></p-calendar>
+              <label for="horario_salida">Hora de Salida</label>
+            </span>
+          </div>
+        </div> <!------------------->
         <div class="row my-4">
-
           <div class="col">
             <span class="p-float-label">
-              <p-dropdown [options]="listSchedule" optionLabel="name" optionValue="code" [autoDisplayFirst]="false" inputId="horarioEntrada"
-                formControlName="schedule_start"></p-dropdown>
-              <label for="horarioEntrada">Horario de Entrada</label>
+              <p-inputNumber inputId="integeronly" formControlName="experience"></p-inputNumber>
+              <label htmlFor="number-input">Experiencia</label>
             </span>
           </div>
-
           <div class="col">
             <span class="p-float-label">
-              <p-dropdown [options]="listSchedule" optionLabel="name" optionValue="code" [autoDisplayFirst]="false" inputId="horarioSalida"
-                formControlName="schedule_end"></p-dropdown>
-              <label for="horarioSalida">Horario de Salida</label>
+              <p-inputNumber inputId="integeronly" formControlName="certifications"></p-inputNumber>
+              <label htmlFor="number-input">Certificados</label>
             </span>
           </div>
-
         </div>
+      </div> <!------------------->
 
-      </div>
       <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"
       (click)="handleClickEditMedico()">Actualizar</button>
     </form>
   </ng-template>
-  

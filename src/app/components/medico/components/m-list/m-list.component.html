@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-10 col-xl-12 mx-auto">
+    <div class="col mx-auto">
       <div class="card card-signin flex-row my-5">
         <div class="card-img-left d-none d-md-flex">
           <!-- Background image for card set in CSS! -->
@@ -11,25 +11,22 @@
               <tr>
                 <th><b>UUID</b></th>
                 <th>Nombre</th>
-                <th>Apellido</th>
                 <th>Cédula</th>
-                <th>Genero</th>
                 <th>Especialidad</th>
                 <th>Correo</th>
                 <th>Teléfono</th>
                 <th>Dirección</th>
                 <th>Horario Entrada</th>
                 <th>Horario Salida</th>
+                <th>Accions</th>
               </tr>
             </ng-template>
             <ng-template pTemplate="body" let-medico>
               <tr [pSelectableRow]="medico">
-                <td>{{medico.id_medico}}</td>
-                <td>{{medico.name}}</td>
-                <td>{{medico.lastname}}</td>
+                <td>{{medico.id_medic}}</td>
+                <td>{{medico.name}} {{medico.lastname}}</td>
                 <td>{{medico.cedula}}</td>
-                <td>{{medico.gender}}</td>
-                <td>{{medico.especiality}}</td>
+                <td>{{medico.speciality}}</td>
                 <td>{{medico.email}}</td>
                 <td>{{medico.phone}}</td>
                 <td>{{medico.address}}</td>
@@ -37,7 +34,7 @@
                 <td>{{medico.schedule_end}}</td>
                 <td>
                   <p-button class="mx-1" icon="pi pi-trash" styleClass="p-button-rounded p-button-danger"
-                  (click)="handleClickDeleteMedico(medico.id_medico)"></p-button>
+                  (click)="handleClickDeleteMedico(medico.id_medic)"></p-button>
                 </td>
               </tr>
             </ng-template>
@@ -46,4 +43,3 @@
       </div>
     </div>
   </div>
-  

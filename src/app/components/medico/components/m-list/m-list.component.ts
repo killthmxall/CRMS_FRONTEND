@@ -31,7 +31,7 @@ export class MListComponent implements OnInit {
   }
 
   onRowSelect(event: any){
-    const uuid: number = event.data.id_medico
+    const uuid: number = event.data.id_medic
     this.__dataService.changeMedico(uuid)
     this.parent.contactAction = "DASHBOARD"
   }

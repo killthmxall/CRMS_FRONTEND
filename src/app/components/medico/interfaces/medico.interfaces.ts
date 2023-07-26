@@ -1,3 +1,5 @@
+import { Time } from "@angular/common"
+
 export interface Medico {
   name: string,
   lastname: string,
@@ -7,22 +9,26 @@ export interface Medico {
   email: string,
   phone: number,
   address: string,
-  schedule_start: Date,
-  schedule_end: Date
+  schedule_start: Time,
+  schedule_end: Time,
+  experience: number,
+  certifications: number
 }
 
 export interface UpdateMedico {
-  id: number,
+  id_medic: number,
   name: string,
   lastname: string,
   cedula: string,
   gender: string,
-  especiality: number,
+  speciality: number,
   email: string,
   phone: number,
   address: string,
-  schedule_start: Date,
-  schedule_end: Date
+  schedule_start: string,
+  schedule_end: string,
+  experience: number,
+  certifications: number
 }
 
 export interface MedicoList{
@@ -35,6 +41,8 @@ export interface MedicoList{
   email: string,
   phone: number,
   address: string,
-  schedule_start: Date,
-  schedule_end: Date
+  schedule_start: Time,
+  schedule_end: Time,
+  experience: number,
+  certifications: number
 }
