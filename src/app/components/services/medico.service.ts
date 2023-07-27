@@ -16,6 +16,10 @@ export class MedicoService {
     return this._http.get(`${this.url}/get_all`);
   }
 
+  getCitesMedico(uuid: number){
+    return this._http.get(`http://localhost:8000/cites/get_cite_medic/${uuid}`)
+  }
+
   addMedico(medico: Medico) {
     return this._http.post(`${this.url}/add_medic`, medico);
   }

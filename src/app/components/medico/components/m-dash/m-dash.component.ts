@@ -3,8 +3,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UpdateMedico } from '../../interfaces/medico.interfaces';
 import { DataService } from 'src/app/components/services/data.service';
 import { MedicoService } from 'src/app/components/services/medico.service';
-import { firstValueFrom } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 import { Time } from '@angular/common';
+import { CitasService } from 'src/app/components/services/citas.services';
+import { CitasList } from 'src/app/components/citas/interfaces/citas.interfaces';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,11 +21,15 @@ export class MDashComponent implements OnInit {
   listSchedule: Array<object> = [];
   medico!: UpdateMedico;
   editable = false;
+  cites: any[] = []
+
   private uuid = 0
 
   constructor(
     private __dataService: DataService,
-    private __medicoService: MedicoService
+    private __citeService: CitasService,
+    private __medicoService: MedicoService,
+    private _router: Router
   ) { }
 
   ngOnInit() {
@@ -42,11 +49,20 @@ export class MDashComponent implements OnInit {
         this.__medicoService.getMedicoById(this.uuid)
       )) as UpdateMedico;
 
+      this.cites = await firstValueFrom(this.__medicoService.getCitesMedico(this.uuid)) as Array<any>
+
       this.medico.schedule_start = this.medico.schedule_start.slice(0,-3)
       this.medico.schedule_end = this.medico.schedule_end.slice(0,-3)
 
       this.medicoForm.patchValue(this.medico);
     }
+  }
+
+  onRowSelect(event: any){
+    const uuid: number = event.data.id_cite
+    this.__dataService.changeCitas(uuid)
+    this._router.navigate(['/citas'])
+    this.__dataService.citas$.next("DASHBOARD")
   }
 
   loadEspecialityList() {
@@ -84,6 +100,8 @@ export class MDashComponent implements OnInit {
       certifications: new FormControl(null, Validators.compose([Validators.required])),
     });
   }
+
+
 
   async handleClickEditMedico() {
 

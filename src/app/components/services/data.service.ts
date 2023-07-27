@@ -8,7 +8,7 @@ export class DataService {
   public toastSignal$ = new BehaviorSubject<messageService | null> (null)
   public pacient$ = new BehaviorSubject<number>(0)
   public medico$ = new BehaviorSubject<number>(0)
-  public citas$ = new BehaviorSubject<number>(0)
+  public citas$ = new BehaviorSubject<string>("")
   public citeIds$ = new BehaviorSubject<number>(0)
 
   constructor() { }
@@ -23,6 +23,10 @@ export class DataService {
 
   public changeCitas(uuid: number){
     this.citeIds$.next(uuid)
+  }
+
+  public changeCiteAction(action: string){
+    this.citas$.next(action)
   }
 
   public sendMessage(severity = "success",
