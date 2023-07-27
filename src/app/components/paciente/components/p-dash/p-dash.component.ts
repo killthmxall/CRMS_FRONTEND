@@ -5,6 +5,10 @@ import { PacientList, Paciente, UpdatePacient } from '../../interfaces/paciente.
 import { firstValueFrom, lastValueFrom } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+import { CitasList } from 'src/app/components/citas/interfaces/citas.interfaces';
+import { CitasService } from 'src/app/components/services/citas.services';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'pacient-dash',
   templateUrl: 'p-dash.component.html',
@@ -12,13 +16,18 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class DashboardPacientComponent implements OnInit {
   pacientForm!: FormGroup;
   listHTA: Array<object> = [];
+  listSchedule: Array<object> = [];
   pacient!: UpdatePacient;
   editable = false;
+  cites: any[] = []
+
   private uuid = 0
 
   constructor(
     private __dataService: DataService,
-    private __pacientService: PacienteService
+    private __citeService: CitasService,
+    private __pacientService: PacienteService,
+    private _router: Router
   ) {}
 
   ngOnInit() {
@@ -37,8 +46,18 @@ export class DashboardPacientComponent implements OnInit {
       this.pacient = (await firstValueFrom(
         this.__pacientService.getPacientById(this.uuid)
       )) as UpdatePacient;
+
+      this.cites = await firstValueFrom(this.__pacientService.getCitesPacient(this.uuid)) as Array<any>
+
       this.pacientForm.patchValue(this.pacient);
     }
+  }
+
+  onRowSelect(event: any){
+    const uuid: number = event.data.id_cite
+    this.__dataService.changeCitas(uuid)
+    this._router.navigate(['/citas'])
+    this.__dataService.citas$.next("DASHBOARD")
   }
 
   loadHTAList() {

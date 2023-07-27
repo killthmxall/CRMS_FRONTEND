@@ -5,6 +5,7 @@
         <!-- Background image for card set in CSS! -->
       </div>
       <div class="card-body">
+
         <div class="d-flex justify-content-center align-content-center">
           <h5 class="card-title text-center mx-1">
             Actualizar Paciente
@@ -37,6 +38,7 @@
                 <span class="mx-1">{{pacient.ethnicity}}</span>
               </div>
             </div>
+
             <div class="row my-4">
               <div class="col">
                 <p-chip>Fecha de Nacimiento</p-chip>
@@ -79,10 +81,36 @@
             </div>
           </div>
         </ng-container>
+        <div class="container"></div>
+
+           <p-table [value]="cites" selectionMode="single" dataKey="id_pacient" (onRowSelect)="onRowSelect($event)">
+            <ng-template pTemplate="header">
+              <tr>
+                <th><b>UUID</b></th>
+                <th>Tipo Cita</th>
+                <th>Descripción</th>
+                <th>Sala de consulta</th>
+                <th>Horario</th>
+                <th>Estado</th>
+                <th>Observaciones</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-cites>
+              <tr [pSelectableRow]="cites">
+                <td>{{cites.id_cite}}</td>
+                <td>{{cites.query_type}}</td>
+                <td>{{cites.query_description}}</td>
+                <td>{{cites.consulting_room}}</td>
+                <td>{{cites.horary | date: 'dd/MM/yyyy hh:mm'}}</td>
+                <td>{{cites.state}}</td>
+                <td>{{cites.observations}}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 <ng-template #editPacient>
   <form [formGroup]="pacientForm">
@@ -101,8 +129,11 @@
             <label for="inputPassword">Apellido</label>
           </span>
         </div>
+
       </div>
+      
       <div class="row my-4">
+
         <div class="col">
           <span class="p-float-label">
             <input pInputText type="text" id="inputConfirmPassword" class="form-control" required
@@ -110,6 +141,7 @@
             <label for="inputConfirmPassword">Género</label>
           </span>
         </div>
+
         <div class="col">
           <span class="p-float-label">
             <input pInputText type="text" id="direccion" class="form-control" required autofocus
@@ -117,14 +149,18 @@
             <label for="direccion">Etnia</label>
           </span>
         </div>
+
       </div>
+
       <div class="row my-4">
+
         <div class="col">
           <span class="p-float-label">
             <input pInputText type="text" id="nombre" class="form-control" required autofocus formControlName="weight">
             <label for="nombre">Peso</label>
           </span>
         </div>
+        
         <div class="col">
           <span class="p-float-label">
             <input pInputText type="text" id="nombre" class="form-control" required autofocus formControlName="height">
