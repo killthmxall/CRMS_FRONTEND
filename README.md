@@ -51,3 +51,30 @@ Git Clone:
 ```text
 git clone https://github.com/killthmxall/CRMS_FRONTEND.git
 ```
+
+---
+
+Backend:
+
+```text
+pip install -g virtualenv
+```
+
+```text
+virtualenv venv
+```
+
+```text
+.\venv\Scripts\activate.ps1
+```
+
+```text
+pip install -r .\requirements.txt      
+```
+
+```text
+uvicorn main:app --reload  
+```
+
+
+
