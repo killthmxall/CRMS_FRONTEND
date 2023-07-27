@@ -1,1 +1,186 @@
-<p>c-dash works!</p>
+<div class="row">
+  <div class="col-lg-10 col-xl-9 mx-auto">
+    <div class="card card-signin flex-row my-5">
+      <div class="card-img-left d-none d-md-flex">
+        <!-- Background image for card set in CSS! -->
+      </div>
+      <div class="card-body">
+        <div class="d-flex justify-content-center align-content-center">
+          <h5 class="card-title text-center mx-1">
+            Actualizar Cita
+            <ng-container *ngIf="cite">
+              <b>{{cite.number_cite}}</b>
+            </ng-container>
+          </h5>
+          <p-button class="mx-1 align-self-end" icon="pi pi-pencil"
+            styleClass="p-button-rounded p-button-info"
+            (click)="handleEditable()"
+            ></p-button>
+        </div>
+        <ng-container *ngIf="cite && !editable else editCite">
+          <div class="container">
+            <div class="row my-4">
+              <div class="col">
+                <p-chip>Uuid</p-chip>
+                <span class="mx-1">{{cite.id_cite}}</span>
+              </div>              
+              <div class="col">
+                <p-chip>Paciente</p-chip>
+                <span class="mx-1">{{cite.id_pacient}}</span>                
+              </div>
+              <div class="col">
+                <p-chip>Medico</p-chip>
+                <span class="mx-1">{{cite.id_medic}}</span>
+              </div>              
+            </div>
+            <div class="row my-4">
+              <div class="col">
+                <p-chip>Tipo de Cita</p-chip>
+                <span class="mx-1">{{cite.query_type}}</span>                
+              </div>
+              <div class="col">
+                <p-chip>N. Cita</p-chip>
+                <span class="mx-1">{{cite.number_cite}}</span>
+              </div>
+              <div class="col">
+                <p-chip>Consultorio</p-chip>
+                <span class="mx-1">{{cite.consulting_room}}</span>
+              </div>
+            </div>
+            <div class="row my-4">
+              <div class="col">
+                <p-chip>Lugar</p-chip>
+                <span class="mx-1">{{cite.site}}</span>
+              </div>
+              <div class="col">
+                <p-chip>Horario</p-chip>
+                <span class="mx-1">{{cite.horary | date: 'dd/MM/yyyy hh:mm'}}</span>
+              </div>
+              <div class="col">
+                <p-chip>Estado</p-chip>
+                <span class="mx-1">{{cite.state}}</span>
+              </div>
+            </div>
+            <div class="row my-4">
+              <div class="col">
+                <p-chip>Description</p-chip>
+                <span class="mx-1">{{cite.query_description}}</span>
+              </div>
+              <div class="col">
+                <p-chip>Observaciones</p-chip>
+                <span class="mx-1">{{cite.observations}}</span>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #editCite>
+  <form [formGroup]="citasForm">
+  
+    <div class="container"> <!------------------->
+
+      <div class="row my-4">
+        <span class="col">
+          <span class="p-float-label">
+            <p-dropdown [options]="listPacients" optionLabel="name" [autoDisplayFirst]="false" 
+              optionValue="code" formControlName="id_pacient" [style]="{width: '100%'}"></p-dropdown>
+            <label for="consultorio">Pacientes</label>
+          </span>
+        </span>
+        <span class="col">
+          <span class="p-float-label">
+            <p-dropdown [options]="listMedics" optionLabel="name" [autoDisplayFirst]="false" 
+              optionValue="code" formControlName="id_medic" [style]="{width: '100%'}"></p-dropdown>
+            <label for="consultorio">Medicos</label>
+          </span>
+        </span>
+      </div>
+
+      <div class="row my-4"> <!------------------->
+        
+        <div class="col">
+          <span class="p-float-label">
+            <input pInputText type="text" id="inputUserame" class="form-control" required autofocus
+              formControlName="query_type">
+            <label for="inputUserame">Tipo de Cita</label>
+          </span>
+        </div>
+
+        <div class="col">
+          <span class="p-float-label">
+            <input pInputText type="text" id="inputConfirmPassword" class="form-control"
+              formControlName="number_cite" >
+            <label for="inputConfirmPassword">Número de Cita</label>
+          </span>
+        </div>
+
+        <div class="col">
+          <span class="p-float-label">
+            <input pInputText type="text" id="inputConfirmPassword" class="form-control" required
+              formControlName="site">
+            <label for="inputConfirmPassword">Lugar</label>
+          </span>
+      </div>
+
+      </div> <!------------------->
+
+      <div class="row my-4"> <!------------------->
+        <div class="col">
+          <span class="p-float-label">
+            <input pInputText type="text" id="inputPassword" class="form-control" required
+              formControlName="query_description">
+            <label for="inputPassword">Descripción de la Consulta</label>
+          </span>
+        </div>
+        
+      </div> <!------------------->
+
+      <div class="row my-4"> <!------------------->
+
+        <div class="col">
+            <span class="p-float-label">
+              <p-dropdown [options]="listConsulting" optionLabel="name" [autoDisplayFirst]="false" inputId="consultorio"
+                optionValue="name" formControlName="consulting_room" [style]="{width: '100%'}"></p-dropdown>
+              <label for="consultorio">Consultorio</label>
+            </span>
+        </div>
+
+        <div class="col">
+          <span class="p-float-label">
+            <p-calendar [showTime]="true" [showIcon]="true" formControlName="horary"></p-calendar>
+            <label for="horario_entrada">Horario</label>
+          </span>
+        </div>
+
+       </div> <!------------------->
+
+      <div class="row my-4"> <!------------------->
+
+        <div class="col">
+          <span class="p-float-label">
+            <input pInputText type="text" id="Observaciones" class="form-control" required autofocus
+              formControlName="observations">
+            <label for="Observaciones">Observaciones</label>
+          </span>
+        </div>
+        
+        <div class="col">
+          <span class="p-float-label">
+            <p-dropdown [options]="listStates" optionLabel="name" [autoDisplayFirst]="false" 
+              optionValue="name" formControlName="state" [style]="{width: '100%'}"></p-dropdown>
+            <label for="consultorio">Estado</label>
+          </span>
+        </div>
+      </div> <!------------------->
+
+    </div> <!------------------->
+
+    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"
+      (click)="handleClickEditCite()">Registrar Cita</button>
+
+  </form>
+</ng-template>

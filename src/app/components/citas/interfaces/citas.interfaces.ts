@@ -16,17 +16,16 @@ export interface Citas {
 }
 
 export interface UpdateCitas {
-  id: number,
+  id_cite: number,
   query_type: String,
   query_description: String,
-  cite: String,
+  site: String,
   number_cite: String,
   consulting_room: String,
-  horary: Date,
-  date: Date,
+  horary: string,
   state: String,
-  pacient: String,
-  Medic: String,
+  id_pacient: String,
+  id_medic: String,
   assistant: String,
   observations: String,
   register_by: number,

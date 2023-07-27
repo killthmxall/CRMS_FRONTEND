@@ -30,7 +30,7 @@ export class CListComponent implements OnInit {
   }
 
   onRowSelect(event: any){
-    const uuid: number = event.data.id_citas
+    const uuid: number = event.data.id_cite
     this.__dataService.changeCitas(uuid)
     this.parent.contactAction = "DASHBOARD"
   }

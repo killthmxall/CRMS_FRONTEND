@@ -11,6 +11,23 @@
   
             <div class="container"> <!------------------->
 
+              <div class="row my-4">
+                <span class="col">
+                  <span class="p-float-label">
+                    <p-dropdown [options]="listPacients" optionLabel="name" [autoDisplayFirst]="false" 
+                      optionValue="code" formControlName="id_pacient" [style]="{width: '100%'}"></p-dropdown>
+                    <label for="consultorio">Pacientes</label>
+                  </span>
+                </span>
+                <span class="col">
+                  <span class="p-float-label">
+                    <p-dropdown [options]="listMedics" optionLabel="name" [autoDisplayFirst]="false" 
+                      optionValue="code" formControlName="id_medic" [style]="{width: '100%'}"></p-dropdown>
+                    <label for="consultorio">Medicos</label>
+                  </span>
+                </span>
+              </div>
+
               <div class="row my-4"> <!------------------->
                 
                 <div class="col">
@@ -23,32 +40,31 @@
 
                 <div class="col">
                   <span class="p-float-label">
-                    <input pInputText type="text" id="inputPassword" class="form-control" required
-                      formControlName="query_description">
-                    <label for="inputPassword">Descripción de la Consulta</label>
+                    <input pInputText type="text" id="inputConfirmPassword" class="form-control"
+                      formControlName="number_cite" >
+                    <label for="inputConfirmPassword">Número de Cita</label>
                   </span>
-                </div>
-
-              </div> <!------------------->
-
-              <div class="row my-4"> <!------------------->
-
-                <div class="col">
-                    <span class="p-float-label">
-                      <input pInputText type="text" id="inputConfirmPassword" class="form-control" required
-                        formControlName="cite">
-                      <label for="inputConfirmPassword">Cita</label>
-                    </span>
                 </div>
 
                 <div class="col">
                   <span class="p-float-label">
                     <input pInputText type="text" id="inputConfirmPassword" class="form-control" required
-                      formControlName="number_cite">
-                    <label for="inputConfirmPassword">Número de Cita</label>
+                      formControlName="site">
+                    <label for="inputConfirmPassword">Lugar</label>
+                  </span>
+              </div>
+
+              </div> <!------------------->
+
+              <div class="row my-4"> <!------------------->
+                <div class="col">
+                  <span class="p-float-label">
+                    <input pInputText type="text" id="inputPassword" class="form-control" required
+                      formControlName="query_description">
+                    <label for="inputPassword">Descripción de la Consulta</label>
                   </span>
                 </div>
-
+                
               </div> <!------------------->
 
               <div class="row my-4"> <!------------------->
@@ -56,50 +72,21 @@
                 <div class="col">
                     <span class="p-float-label">
                       <p-dropdown [options]="listConsulting" optionLabel="name" [autoDisplayFirst]="false" inputId="consultorio"
-                        optionValue="code" formControlName="consulting_room"></p-dropdown>
+                        optionValue="name" formControlName="consulting_room" [style]="{width: '100%'}"></p-dropdown>
                       <label for="consultorio">Consultorio</label>
                     </span>
                 </div>
 
                 <div class="col">
                   <span class="p-float-label">
-                    <p-dropdown [options]="listSchedule" optionLabel="name" [autoDisplayFirst]="false" inputId="horario_entrada"
-                      optionValue="code" formControlName="schedule_start"></p-dropdown>
+                    <p-calendar [showTime]="true" [showIcon]="true" formControlName="horary" ></p-calendar>
                     <label for="horario_entrada">Horario</label>
                   </span>
                 </div>
 
                </div> <!------------------->
 
-               <div class="row my-4"> <!------------------->
-
-                <div class="col">
-                  <span class="p-float-label">
-                    <input pInputText type="text" id="fecha" class="form-control" required autofocus
-                      formControlName="date">
-                    <label for="fecha">Fecha</label>
-                  </span>
-                </div>
-
-                <div class="col">
-                  <span class="p-float-label">
-                    <input pInputText type="text" id="paciente" class="form-control" required autofocus
-                      formControlName="pacient">
-                    <label for="paciente">Paciente</label>
-                  </span>
-                </div>
-
-              </div> <!------------------->
-
               <div class="row my-4"> <!------------------->
-
-                <div class="col">
-                  <span class="p-float-label">
-                    <input pInputText type="text" id="medico" class="form-control" required autofocus
-                      formControlName="medic">
-                    <label for="medico">Médico</label>
-                  </span>
-                </div>
 
                 <div class="col">
                   <span class="p-float-label">
@@ -108,20 +95,16 @@
                     <label for="Observaciones">Observaciones</label>
                   </span>
                 </div>
-
-              </div> <!------------------->
-
-              <div class="row my-4"> <!------------------->
-
+                
                 <div class="col">
                   <span class="p-float-label">
-                    <input pInputText type="text" id="estado" class="form-control" required autofocus
-                      formControlName="state">
-                    <label for="estado">Estado</label>
+                    <p-dropdown [options]="listStates" optionLabel="name" [autoDisplayFirst]="false" 
+                      optionValue="name" formControlName="state" [style]="{width: '100%'}"></p-dropdown>
+                    <label for="consultorio">Estado</label>
                   </span>
                 </div>
-
               </div> <!------------------->
+
             </div> <!------------------->
 
             <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"

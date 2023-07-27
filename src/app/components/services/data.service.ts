@@ -9,6 +9,7 @@ export class DataService {
   public pacient$ = new BehaviorSubject<number>(0)
   public medico$ = new BehaviorSubject<number>(0)
   public citas$ = new BehaviorSubject<number>(0)
+  public citeIds$ = new BehaviorSubject<number>(0)
 
   constructor() { }
 
@@ -21,7 +22,7 @@ export class DataService {
   }
 
   public changeCitas(uuid: number){
-    this.citas$.next(uuid)
+    this.citeIds$.next(uuid)
   }
 
   public sendMessage(severity = "success",
