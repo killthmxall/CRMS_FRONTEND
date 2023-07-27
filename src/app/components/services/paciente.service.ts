@@ -17,7 +17,7 @@ export class PacienteService {
   }
 
   getCitesPacient(uuid: number){
-    return this._http.get(`http://localhost:8000/cites/get_cite_medic/${uuid}`)
+    return this._http.get(`http://localhost:8000/cites/get_cite_pacient/${uuid}`)
   }
 
   addPaciente(paciente: Paciente) {

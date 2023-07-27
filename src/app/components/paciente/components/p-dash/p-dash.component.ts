@@ -49,6 +49,8 @@ export class DashboardPacientComponent implements OnInit {
 
       this.cites = await firstValueFrom(this.__pacientService.getCitesPacient(this.uuid)) as Array<any>
 
+      console.warn(this.cites)
+
       this.pacientForm.patchValue(this.pacient);
     }
   }

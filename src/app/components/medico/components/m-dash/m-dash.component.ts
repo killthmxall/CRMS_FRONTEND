@@ -51,6 +51,8 @@ export class MDashComponent implements OnInit {
 
       this.cites = await firstValueFrom(this.__medicoService.getCitesMedico(this.uuid)) as Array<any>
 
+      console.warn(this.cites)
+
       this.medico.schedule_start = this.medico.schedule_start.slice(0,-3)
       this.medico.schedule_end = this.medico.schedule_end.slice(0,-3)
 
